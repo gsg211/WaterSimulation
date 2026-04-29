@@ -1,0 +1,23 @@
+# Visual Studio Temporary Files
+.vs/
+out/
+build/
+bin/
+obj/
+
+# Compilation output
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.ipch
+
+# Dependencies (if using a package manager)
+vcpkg_installed/
