@@ -7,6 +7,9 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{8b4599c3-2c6c-4f7e-8a83-03fda69234f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{e16f851f-3df9-42ba-9633-e739dd276742}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -14,11 +17,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.frag">
+    <None Include="WaterFragment.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="vertex.vert">
+    <None Include="WaterVertex.vert">
       <Filter>shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="camera.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Water.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
