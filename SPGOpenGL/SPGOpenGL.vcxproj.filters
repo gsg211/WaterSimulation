@@ -10,6 +10,9 @@
     <Filter Include="Headers">
       <UniqueIdentifier>{e16f851f-3df9-42ba-9633-e739dd276742}</UniqueIdentifier>
     </Filter>
+    <Filter Include="textures">
+      <UniqueIdentifier>{a13df8d9-ed2b-4f00-8360-1e8ff9adba5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -23,6 +26,12 @@
     <None Include="WaterVertex.vert">
       <Filter>shaders</Filter>
     </None>
+    <None Include="SkyboxVertex.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="SkyboxFragment.frag">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -34,5 +43,31 @@
     <ClInclude Include="Water.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="skybox.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Sabin\Downloads\bottom.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="C:\Users\Sabin\Downloads\top.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="C:\Users\Sabin\Downloads\left.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="C:\Users\Sabin\Downloads\right.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="C:\Users\Sabin\Downloads\back.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="C:\Users\Sabin\Downloads\front.png">
+      <Filter>textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

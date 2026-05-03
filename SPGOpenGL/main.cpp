@@ -8,10 +8,11 @@
 #include <glm/gtc/constants.hpp>
 #include "camera.h"
 #include "Water.h" 
-
+#include "skybox.h"
 Camera* camera;
 
 Water* water;
+Skybox* skybox;
 
 glm::mat4 projectionMatrix, modelMatrix;
 glm::vec3 lightPos(0.0f, 20.0f, 0.0f);
@@ -21,8 +22,10 @@ void display() {
 
     camera->update();
     glm::mat4 viewMatrix = camera->getViewMatrix();
-
+    skybox->display(projectionMatrix, viewMatrix);  
     water->display(projectionMatrix, viewMatrix, camera->pos);
+   
+   
 
     glutPostRedisplay();
     glutSwapBuffers();
@@ -30,13 +33,21 @@ void display() {
 
 void init() {
     glewInit();
+
     camera = new Camera();
 
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.549f, 1.0f, 1.0f);
 
-    water = new Water(600, 400.0f);
+    water = new Water(900, 300.0f);
     water->init();
+
+    std::vector<std::string> faces = {
+        "textures/right.png", "textures/left.png", "textures/top.png", "textures/bottom.png", "textures/front.png", "textures/back.png"
+    };
+
+    skybox = new Skybox(faces);
+    skybox->init();
 }
 
 void reshape(int w, int h) {

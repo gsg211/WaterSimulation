@@ -120,13 +120,25 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="SkyboxFragment.frag" />
+    <None Include="SkyboxVertex.vert" />
     <None Include="WaterFragment.frag" />
     <None Include="WaterVertex.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Water.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\Sabin\Downloads\right.png" />
+    <Image Include="C:\Users\Sabin\Downloads\left.png" />
+    <Image Include="C:\Users\Sabin\Downloads\top.png" />
+    <Image Include="C:\Users\Sabin\Downloads\bottom.png" />
+    <Image Include="C:\Users\Sabin\Downloads\front.png" />
+    <Image Include="C:\Users\Sabin\Downloads\back.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

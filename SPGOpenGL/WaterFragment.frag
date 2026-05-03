@@ -26,10 +26,10 @@ vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 
 void main() 
 {
-	vec3 ambient = vec3(0.0,0.5,0.5);
-	vec3 diffuse = vec3(0.0, 0.5, 0.5);
-	vec3 specular = vec3(0.8);
-	float specPower = 64;
+	vec3 ambient = vec3(0.0, 0.05, 0.1);
+	vec3 diffuse = vec3(0.0, 0.4, 0.4);
+	vec3 specular = vec3(1.0);
+	float specPower = 128;
 	
 	vec3 color = lighting(pos, normal, lightPos, viewPos, 
 				ambient, diffuse, specular, specPower);
