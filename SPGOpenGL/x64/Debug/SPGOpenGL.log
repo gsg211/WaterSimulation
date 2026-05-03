@@ -8,4 +8,5 @@ E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(50,28): warning C4101: 'nrCh
 E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(50,13): warning C4101: 'width': unreferenced local variable
   (compiling source file 'main.cpp')
   
+  LINK : E:\Facultate\An3\Spg\Proiect Spg\x64\Debug\SPGOpenGL.exe not found or not built by the last incremental link; performing full link
   SPGOpenGL.vcxproj -> E:\Facultate\An3\Spg\Proiect Spg\x64\Debug\SPGOpenGL.exe

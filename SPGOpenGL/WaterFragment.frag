@@ -18,7 +18,13 @@ vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 	//SPECULARA
 	vec3 V=normalize(viewPos-pos);
 	vec3 R=reflect(-L,N);
-	vec3 specular_color  = pow(max(dot(R, V), 0.0), specPower) * specular;
+	
+	float spec = pow(max(dot(R, V), 0.0), specPower);
+    vec3 specular_color = specular * spec;
+
+    // Fresnel: more specular at grazing angles, softer head-on
+    float fresnel = pow(1.0 - max(dot(N, V), 0.0), 3.0);
+    specular_color *= (0.2 + 0.8 * fresnel); //20% speculara mereu + 80% din fresnel
 
 	vec3 final_color=ambient + diffuse_color + specular_color;
 	return final_color;
@@ -29,7 +35,7 @@ void main()
 	vec3 ambient = vec3(0.0, 0.05, 0.1);
 	vec3 diffuse = vec3(0.0, 0.4, 0.4);
 	vec3 specular = vec3(1.0);
-	float specPower = 128;
+	float specPower = 256;
 	
 	vec3 color = lighting(pos, normal, lightPos, viewPos, 
 				ambient, diffuse, specular, specPower);

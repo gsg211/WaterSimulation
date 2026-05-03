@@ -5,6 +5,7 @@ layout(location = 0) in vec3 vPos;
 
 uniform mat4 mvpMatrix;
 uniform mat4 normalMatrix;
+uniform mat4 modelMatrix;   
 uniform float time;
 
 #define WIND_DIR 0.785 
@@ -68,7 +69,7 @@ void main() {
 
     vec3 rawNormal = normalize(vec3(-totalDX, 1.0, -totalDZ)); 
     
-    normal = normalize(mat3(normalMatrix) * rawNormal);
-    pos = v;
+    normal = normalize(mat3(transpose(inverse(modelMatrix))) * rawNormal);
+    pos = vec3(modelMatrix * vec4(v, 1.0));
     gl_Position = mvpMatrix * vec4(v, 1.0);
 }
