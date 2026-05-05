@@ -43,7 +43,7 @@ void init() {
     water->init();
 
     std::vector<std::string> faces = {
-        "textures/right.png", "textures/left.png", "textures/top.png", "textures/bottom.png", "textures/front.png", "textures/back.png"
+        "textures/front.png", "textures/back.png", "textures/top.png", "textures/bottom.png", "textures/right.png", "textures/left.png"
     };
 
     skybox = new Skybox(faces);

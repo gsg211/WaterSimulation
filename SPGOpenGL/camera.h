@@ -50,6 +50,11 @@ public:
     }
 
     void handleMouse(int x, int y) {
+
+        int centerX = 400;
+        int centerY = 300;
+
+
         if (firstMouse) {
             lastX = (float)x;
             lastY = (float)y;
@@ -68,6 +73,12 @@ public:
         if (pitch < -89.0f) pitch = -89.0f;
 
         updateVectors();
+
+        if (x < 100 || x > 700 || y < 100 || y > 500) {
+            lastX = (float)centerX;
+            lastY = (float)centerY;
+            glutWarpPointer(centerX, centerY);
+        }
     }
 
     void update() {
