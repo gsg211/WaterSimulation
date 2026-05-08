@@ -25,7 +25,6 @@ void display() {
     skybox->display(projectionMatrix, viewMatrix);  
     water->display(projectionMatrix, viewMatrix, camera->pos);
    
-   
 
     glutPostRedisplay();
     glutSwapBuffers();
@@ -39,8 +38,6 @@ void init() {
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.549f, 1.0f, 1.0f);
 
-    water = new Water(900, 300.0f);
-    water->init();
 
     std::vector<std::string> faces = {
         "textures/front.png", "textures/back.png", "textures/top.png", "textures/bottom.png", "textures/right.png", "textures/left.png"
@@ -48,6 +45,11 @@ void init() {
 
     skybox = new Skybox(faces);
     skybox->init();
+
+    water = new Water(900, 300.0f);
+    water->setSkyboxId(skybox->getTextureID());
+    water->init();
+
 }
 
 void reshape(int w, int h) {

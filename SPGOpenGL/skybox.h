@@ -85,4 +85,8 @@ public:
 
         glDepthFunc(GL_LESS); 
     }
+
+    GLuint getTextureID() const {
+        return textureID;
+    }
 };

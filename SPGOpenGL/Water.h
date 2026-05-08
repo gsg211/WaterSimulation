@@ -10,6 +10,7 @@ private:
     int resolution;
     float size;
     int nrVertices;
+    GLuint skyboxID;
     glm::vec3 lightPos;
 
     std::vector<float> generateWaterMesh() {
@@ -44,6 +45,8 @@ public:
 
     void init() override {
         load_shaders();
+
+
         std::vector<float> data = generateWaterMesh();
         nrVertices = (int)data.size() / 3; 
 
@@ -66,6 +69,10 @@ public:
         float time = (float)glutGet(GLUT_ELAPSED_TIME) / 1000.0f;
         glm::mat4 modelMatrix = glm::mat4(1.0f);
 
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxID);
+        glUniform1i(glGetUniformLocation(shader_programme, "skybox"), 0);
+
         glUniform1f(glGetUniformLocation(shader_programme, "time"), time);
         glUniformMatrix4fv(glGetUniformLocation(shader_programme, "mvpMatrix"), 1, GL_FALSE, glm::value_ptr(projectionMatrix * viewMatrix * modelMatrix));
         glUniformMatrix4fv(glGetUniformLocation(shader_programme, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));  
@@ -79,5 +86,9 @@ public:
 
     void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix) override {
         this->display(projectionMatrix, viewMatrix, glm::vec3(0.0f, 10.0f, 20.0f));
+    }
+
+    void setSkyboxId(GLuint skybox) {
+        this->skyboxID = skybox;
     }
 };

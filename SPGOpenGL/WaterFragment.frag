@@ -6,6 +6,7 @@ in vec3 pos;
 
 uniform vec3 lightPos;
 uniform vec3 viewPos;
+uniform samplerCube skybox;
 
 vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 				vec3 ambient, vec3 diffuse, vec3 specular, float specPower)
@@ -22,17 +23,26 @@ vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 	float spec = pow(max(dot(R, V), 0.0), specPower);
     vec3 specular_color = specular * spec;
 
-    // Fresnel: more specular at grazing angles, softer head-on
+	//SKYBOX
+	vec3 I_sky = normalize(pos - viewPos);
+    vec3 R_sky = reflect(I_sky, N);
+    vec3 color_sky = vec4(texture(skybox, R_sky)).rgb;
+
+
+    //FRESNEL
     float fresnel = pow(1.0 - max(dot(N, V), 0.0), 3.0);
     specular_color *= (0.2 + 0.8 * fresnel); //20% speculara mereu + 80% din fresnel
 
-	vec3 final_color=ambient + diffuse_color + specular_color;
+	//FINAL COLOR
+	vec3 base_color= ambient + diffuse_color + specular_color;
+	vec3 final_color= mix(base_color, color_sky, 0.1 + fresnel);
+
 	return final_color;
 }
 
 void main() 
-{
-	vec3 ambient = vec3(0.0, 0.05, 0.2);
+{	
+	vec3 ambient = vec3(0.0, 0.02, 0.2);
 	vec3 diffuse = vec3(0.0, 0.6, 0.6);
 	vec3 specular = vec3(1.0);
 	float specPower = 256;
