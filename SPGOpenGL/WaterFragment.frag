@@ -35,7 +35,7 @@ vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 
 	//FINAL COLOR
 	vec3 base_color= ambient + diffuse_color + specular_color;
-	vec3 final_color= mix(base_color, color_sky, 0.1 + fresnel);
+	vec3 final_color= mix(base_color, color_sky, 0.2 + fresnel);
 
 	return final_color;
 }

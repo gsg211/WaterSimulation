@@ -18,6 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="objloader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="WaterFragment.frag">
@@ -30,6 +33,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="SkyboxFragment.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="BuoyVertex.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="BuoyFragment.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -47,6 +56,12 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="buoy.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="objloader.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

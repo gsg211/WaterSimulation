@@ -39,8 +39,8 @@ private:
     }
 
 public:
-    Water(int res, float s) : Entity("WaterVertex.vert", "WaterFragment.frag"), resolution(res), size(s) {
-        lightPos = glm::vec3(0.0f, 50.0f, 0.0f);
+    Water(int res, float s, glm::vec3 lightpos) : Entity("WaterVertex.vert", "WaterFragment.frag"), resolution(res), size(s) {
+        this->lightPos = lightpos;
     }
 
     void init() override {

@@ -118,16 +118,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="objloader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BuoyFragment.frag" />
+    <None Include="BuoyVertex.vert" />
     <None Include="SkyboxFragment.frag" />
     <None Include="SkyboxVertex.vert" />
     <None Include="WaterFragment.frag" />
     <None Include="WaterVertex.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="buoy.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="objloader.hpp" />
     <ClInclude Include="skybox.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Water.h" />
