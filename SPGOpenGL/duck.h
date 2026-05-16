@@ -29,12 +29,12 @@ public:
         load_shaders();
 
         // 1. Load OBJ
-        if (!loadOBJ("obj/12250_Bird_v1_L3.obj", vertices, uvs, normals)) {
+        if (!loadOBJ("obj/12248_Bird_v1_L2.obj", vertices, uvs, normals)) {
             printf("Failed to load OBJ!\n");
         }
 
         // 2. Parse the MTL to find the real texture filename
-        auto materials = loadMTL("12250_Bird_v1_L3.mtl");
+        auto materials = loadMTL("12248_Bird_v1_L2.mtl");
         std::string texturePath = "DUCK.jpg"; // safe fallback
 
         if (!materials.empty()) {
@@ -107,7 +107,7 @@ public:
     void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos) {
         glUseProgram(shader_programme);
 
-        double scalefactor = 1.0;
+        double scalefactor = 0.1;
         glm::mat4 rotated = glm::rotate(modelMatrix, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         glm::mat4 scaledModelMatrix = glm::scale(rotated, glm::vec3(scalefactor));
 
