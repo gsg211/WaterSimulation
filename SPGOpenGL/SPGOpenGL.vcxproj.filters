@@ -38,10 +38,10 @@
     <None Include="SkyboxFragment.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="BuoyVertex.vert">
+    <None Include="DuckVertex.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="BuoyFragment.frag">
+    <None Include="DuckFragment.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
@@ -61,7 +61,7 @@
     <ClInclude Include="stb_image.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="buoy.h">
+    <ClInclude Include="duck.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="objloader.hpp">

@@ -9,7 +9,7 @@
 #include "mtlloader.h"
 
 
-class Buoy : public Entity {
+class Duck : public Entity {
 private:
     GLuint textureID;
     glm::vec3 lightPos;
@@ -21,7 +21,7 @@ private:
     std::vector<float> data;
 
 public:
-    Buoy(glm::vec3 lp) : Entity("BuoyVertex.vert", "BuoyFragment.frag"), lightPos(lp) {
+    Duck(glm::vec3 lp) : Entity("DuckVertex.vert", "DuckFragment.frag"), lightPos(lp) {
         textureID = 0; // Fixed warning
     }
 
@@ -29,13 +29,13 @@ public:
         load_shaders();
 
         // 1. Load OBJ
-        if (!loadOBJ("obj/buoy.obj", vertices, uvs, normals)) {
+        if (!loadOBJ("obj/12250_Bird_v1_L3.obj", vertices, uvs, normals)) {
             printf("Failed to load OBJ!\n");
         }
 
         // 2. Parse the MTL to find the real texture filename
-        auto materials = loadMTL("buoy.mtl");
-        std::string texturePath = "textures/buoy_diffuse.png"; // safe fallback
+        auto materials = loadMTL("12250_Bird_v1_L3.mtl");
+        std::string texturePath = "DUCK.jpg"; // safe fallback
 
         if (!materials.empty()) {
             // grab the first material's diffuse texture
@@ -107,8 +107,10 @@ public:
     void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos) {
         glUseProgram(shader_programme);
 
-        double scalefactor = 6.0;
-        glm::mat4 scaledModelMatrix = glm::scale(modelMatrix, glm::vec3(scalefactor, scalefactor, scalefactor));
+        double scalefactor = 1.0;
+        glm::mat4 rotated = glm::rotate(modelMatrix, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        glm::mat4 scaledModelMatrix = glm::scale(rotated, glm::vec3(scalefactor));
+
         glm::mat4 mvp = projectionMatrix * viewMatrix * scaledModelMatrix;
 
         glUniformMatrix4fv(glGetUniformLocation(shader_programme, "mvpMatrix"), 1, GL_FALSE, glm::value_ptr(mvp));

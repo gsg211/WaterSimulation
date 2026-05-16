@@ -9,12 +9,12 @@
 #include "camera.h"
 #include "Water.h" 
 #include "skybox.h"
-#include "buoy.h"
+#include "duck.h"
 Camera* camera;
 
 Water* water;
 Skybox* skybox;
-Buoy* buoy;
+Duck* duck;
 
 glm::mat4 projectionMatrix, modelMatrix;
 glm::vec3 lightPos(-100.0f, 50.0f, 0.0f);
@@ -40,9 +40,9 @@ void init() {
     water = new Water(900, 300.0f, lightPos);
     water->setSkyboxId(skybox->getTextureID());
     water->init();
-    buoy = new Buoy(lightPos);
+    duck = new Duck(lightPos);
 
-    buoy->init();
+    duck->init();
 
 
 }
@@ -55,7 +55,7 @@ void display() {
     glm::mat4 viewMatrix = camera->getViewMatrix();
     skybox->display(projectionMatrix, viewMatrix);
     water->display(projectionMatrix, viewMatrix, camera->pos);
-    buoy->display(projectionMatrix, viewMatrix, camera->pos);
+    duck->display(projectionMatrix, viewMatrix, camera->pos);
 
     glutPostRedisplay();
     glutSwapBuffers();

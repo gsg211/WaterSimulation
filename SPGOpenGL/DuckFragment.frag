@@ -47,5 +47,5 @@ void main()
 						  ambient, lightColor, specular, specPower);
 		
 	
-	    fragColor = vec4(TexCoords.x, TexCoords.y, 0.0, 1.0);
+	fragColor = vec4(color, 1.0);
 }
