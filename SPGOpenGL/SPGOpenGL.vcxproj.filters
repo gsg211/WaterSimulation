@@ -70,6 +70,9 @@
     <ClInclude Include="mtlloader.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="miniaudio.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="C:\Users\Sabin\Downloads\bottom.png">

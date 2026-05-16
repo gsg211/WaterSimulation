@@ -10,6 +10,11 @@
 #include "Water.h" 
 #include "skybox.h"
 #include "duck.h"
+
+#define MINIAUDIO_IMPLEMENTATION
+#include "miniaudio.h"
+ma_engine audioEngine;
+
 Camera* camera;
 
 Water* water;
@@ -44,7 +49,8 @@ void init() {
 
     duck->init();
 
-
+    ma_engine_init(NULL, &audioEngine);
+    ma_engine_play_sound(&audioEngine, "ocean.mp3", NULL);
 }
 
 
