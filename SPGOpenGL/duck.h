@@ -7,7 +7,7 @@
 #include <direct.h>
 #include "stb_image.h"
 #include "mtlloader.h"
-
+#include "math.h"
 
 class Duck : public Entity {
 private:
@@ -20,6 +20,7 @@ private:
     std::vector<glm::vec3> normals;
     std::vector<float> data;
 
+
 public:
     Duck(glm::vec3 lp) : Entity("DuckVertex.vert", "DuckFragment.frag"), lightPos(lp) {
         textureID = 0; // Fixed warning
@@ -28,26 +29,22 @@ public:
     void init() override {
         load_shaders();
 
-        // 1. Load OBJ
         if (!loadOBJ("obj/12248_Bird_v1_L2.obj", vertices, uvs, normals)) {
             printf("Failed to load OBJ!\n");
         }
 
-        // 2. Parse the MTL to find the real texture filename
         auto materials = loadMTL("12248_Bird_v1_L2.mtl");
         std::string texturePath = "DUCK.jpg"; // safe fallback
 
         if (!materials.empty()) {
-            // grab the first material's diffuse texture
             const auto& mat = materials.begin()->second;
             if (!mat.diffuseTexture.empty()) {
-                // MTL paths are relative to the .mtl file location
                 texturePath =  mat.diffuseTexture;
                 printf("Using texture from MTL: %s\n", texturePath.c_str());
             }
         }
 
-        // 3. VAO / VBOs (unchanged)
+
         glGenVertexArrays(1, &this->vao);
         glBindVertexArray(this->vao);
 
@@ -74,7 +71,6 @@ public:
 
         glBindVertexArray(0);
 
-        // 4. Load texture from the path found in MTL
         glGenTextures(1, &textureID);
         glBindTexture(GL_TEXTURE_2D, textureID);
 
@@ -107,8 +103,23 @@ public:
     void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos) {
         glUseProgram(shader_programme);
 
-        double scalefactor = 0.1;
-        glm::mat4 rotated = glm::rotate(modelMatrix, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        float time = (float)glutGet(GLUT_ELAPSED_TIME) / 500.0f;
+        float time2 = (float)glutGet(GLUT_ELAPSED_TIME)/ 500.0f;
+        double scalefactor = 0.11;
+        float amount = sin(time)/1.5 - 1.5;
+
+        glm::mat4 translated = glm::translate(modelMatrix, glm::vec3(0.0, amount, 0.0));
+        
+        //rotatie de baza sa stea in picioare
+        glm::mat4 rotated = glm::rotate(translated, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        //stanga dreapta 
+        rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 3), glm::vec3(0.0f,1.0f, 0.0f));
+        //fata spate
+        rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 10), glm::vec3(1.0f, 0.0, 0.0f));
+        //in jurul axei
+        rotated *= glm::rotate(glm::mat4(1.0), glm::radians(time), glm::vec3(0.0f, 0.0, 1.0f));
+
+
         glm::mat4 scaledModelMatrix = glm::scale(rotated, glm::vec3(scalefactor));
 
         glm::mat4 mvp = projectionMatrix * viewMatrix * scaledModelMatrix;

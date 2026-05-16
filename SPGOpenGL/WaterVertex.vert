@@ -59,9 +59,10 @@ void main() {
         totalDZ += wave.z;
 
         // fractional brownian motion scaling
-        curWavelength *= 0.5; 
-        curAmp *= 0.45;       
+        curWavelength *= 0.65; 
+        curAmp *= 0.55;       
         curSpeed *= 1.3;     
+
     }
 
     v.y = totalHeight;
