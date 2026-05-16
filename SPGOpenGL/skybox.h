@@ -2,7 +2,6 @@
 #include "Entity.h"
 #include <vector>
 #include <string>
- #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <direct.h>
 

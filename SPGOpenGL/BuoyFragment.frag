@@ -3,9 +3,11 @@ out vec4 fragColor;
 
 in vec3 normal;
 in vec3 pos;
+in vec2 TexCoords;
 
 uniform vec3 lightPos;
 uniform vec3 viewPos;
+uniform sampler2D textureSampler;
 
 vec3 lighting(vec3 objectColor, vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 				vec3 ambient, vec3 lightColor, vec3 specular, float specPower)
@@ -34,7 +36,7 @@ vec3 lighting(vec3 objectColor, vec3 pos, vec3 normal, vec3 lightPos, vec3 viewP
 void main() 
 {
 	// Definim proprietatile materialului
-	vec3 objectColor = vec3(0.0, 0.5, 0.2); // Maro (pentru Scrat)
+	vec3 objectColor = texture(textureSampler, TexCoords).rgb; 
 	vec3 lightColor  = vec3(1.0, 1.0, 1.0); // Lumina alba
 	vec3 ambient     = vec3(0.2);           // Lumina ambientala
 	vec3 specular    = vec3(1.0);           // Intensitatea reflexiei
@@ -44,5 +46,6 @@ void main()
 	vec3 color = lighting(objectColor, pos, normal, lightPos, viewPos, 
 						  ambient, lightColor, specular, specPower);
 		
-	fragColor = vec4(color, 1.0);
+	
+	    fragColor = vec4(TexCoords.x, TexCoords.y, 0.0, 1.0);
 }

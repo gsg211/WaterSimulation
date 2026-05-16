@@ -21,6 +21,9 @@
     <ClCompile Include="objloader.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="WaterFragment.frag">
@@ -62,6 +65,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="objloader.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="mtlloader.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

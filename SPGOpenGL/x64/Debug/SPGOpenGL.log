@@ -1,11 +1,11 @@
 ﻿  main.cpp
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(50,20): warning C4101: 'height': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,20): warning C4101: 'height': unreferenced local variable
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(50,28): warning C4101: 'nrChannels': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,28): warning C4101: 'nrChannels': unreferenced local variable
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(50,13): warning C4101: 'width': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,13): warning C4101: 'width': unreferenced local variable
   (compiling source file 'main.cpp')
   
   SPGOpenGL.vcxproj -> E:\Facultate\An3\Spg\Proiect Spg\x64\Debug\SPGOpenGL.exe
