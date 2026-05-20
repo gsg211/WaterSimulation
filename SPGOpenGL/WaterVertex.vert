@@ -19,6 +19,7 @@ vec3 calculateWave(vec2 p, float angle, float wavelength, float speed, float amp
     float totalAngle = angle + WIND_DIR;
 
     //wavelength density
+    //k = 2π / wavelength 
     float k = 2.0 * 3.14159 / wavelength;
 
     vec2 dir = vec2(cos(totalAngle), sin(totalAngle));
@@ -70,7 +71,7 @@ void main() {
 
     vec3 rawNormal = normalize(vec3(-totalDX, 1.0, -totalDZ)); 
     
-    normal = normalize(mat3(transpose(inverse(modelMatrix))) * rawNormal);
-    pos = vec3(modelMatrix * vec4(v, 1.0));
+    pos = v;
+    normal = rawNormal;
     gl_Position = mvpMatrix * vec4(v, 1.0);
 }

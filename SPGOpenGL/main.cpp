@@ -84,7 +84,6 @@ int main(int argc, char** argv) {
     glutCreateWindow("proiect spg");
 
     init();
-
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutKeyboardFunc(kbD);

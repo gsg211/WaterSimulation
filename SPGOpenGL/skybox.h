@@ -68,7 +68,7 @@ public:
         glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
     }
 
-    void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix) override {
+    void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos = glm::vec3(0.0f, 0.0f, 0.0f)) override {
         glDepthFunc(GL_LEQUAL); 
         glUseProgram(shader_programme);
 

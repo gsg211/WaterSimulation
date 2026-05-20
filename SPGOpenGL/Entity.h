@@ -12,7 +12,7 @@ class IEntity {
 public:
     virtual ~IEntity() {}
     virtual void init() = 0;
-    virtual void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix) = 0;
+    virtual void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos = glm::vec3(0.0f, 0.0f,0.0f)) = 0;
 };
 
 

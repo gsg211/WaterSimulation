@@ -23,7 +23,7 @@ private:
 
 public:
     Duck(glm::vec3 lp) : Entity("DuckVertex.vert", "DuckFragment.frag"), lightPos(lp) {
-        textureID = 0; // Fixed warning
+        textureID = 0;
     }
 
     void init() override {
@@ -33,16 +33,7 @@ public:
             printf("Failed to load OBJ!\n");
         }
 
-        auto materials = loadMTL("12248_Bird_v1_L2.mtl");
-        std::string texturePath = "DUCK.jpg"; // safe fallback
-
-        if (!materials.empty()) {
-            const auto& mat = materials.begin()->second;
-            if (!mat.diffuseTexture.empty()) {
-                texturePath =  mat.diffuseTexture;
-                printf("Using texture from MTL: %s\n", texturePath.c_str());
-            }
-        }
+        std::string texturePath = "12248_Bird_v1_diff.jpg";
 
 
         glGenVertexArrays(1, &this->vao);
@@ -96,11 +87,8 @@ public:
         }
     }
 
-    void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix) override {
-        this->display(projectionMatrix, viewMatrix, glm::vec3(0.0f, 10.0f, 20.0f));
-    }
 
-    void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos) {
+    void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos) override {
         glUseProgram(shader_programme);
 
         float time = (float)glutGet(GLUT_ELAPSED_TIME) / 500.0f;
