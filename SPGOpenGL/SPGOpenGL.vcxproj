@@ -134,7 +134,6 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="miniaudio.h" />
-    <ClInclude Include="mtlloader.h" />
     <ClInclude Include="objloader.hpp" />
     <ClInclude Include="skybox.h" />
     <ClInclude Include="stb_image.h" />

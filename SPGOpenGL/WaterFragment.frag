@@ -30,12 +30,12 @@ vec3 lighting(vec3 pos, vec3 normal, vec3 lightPos, vec3 viewPos,
 
 
     //FRESNEL
-    float fresnel = pow(1.0 - max(dot(N, V), 0.0), 3.0);
+    float fresnel = pow(1.0 - max(dot(N, V), 0.0), 3.0); //ridica la puterea a 3a
     specular_color *= (0.2 + 0.8 * fresnel); //20% speculara mereu + 80% din fresnel
 
 	//FINAL COLOR
 	vec3 base_color= ambient + diffuse_color + specular_color;
-	vec3 final_color= mix(base_color, color_sky, 0.2 + fresnel);
+	vec3 final_color= mix(base_color, color_sky, 0.2 + fresnel); 
 
 	return final_color;
 }

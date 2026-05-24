@@ -6,7 +6,6 @@
 #include "objloader.hpp"
 #include <direct.h>
 #include "stb_image.h"
-#include "mtlloader.h"
 #include "math.h"
 
 class Duck : public Entity {
@@ -65,14 +64,19 @@ public:
         glGenTextures(1, &textureID);
         glBindTexture(GL_TEXTURE_2D, textureID);
 
+        //if coord out of texture -> repeat
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+        //uses mipmaps from distance
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        //interpolation when near
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         int width, height, nrChannels;
         stbi_set_flip_vertically_on_load(false);
 
+        //load image
         unsigned char* texData = stbi_load(texturePath.c_str(), &width, &height, &nrChannels, 0);
         if (texData) {
             GLenum format = (nrChannels == 4) ? GL_RGBA : GL_RGB;
@@ -92,17 +96,17 @@ public:
         glUseProgram(shader_programme);
 
         float time = (float)glutGet(GLUT_ELAPSED_TIME) / 500.0f;
-        float time2 = (float)glutGet(GLUT_ELAPSED_TIME)/ 500.0f;
         double scalefactor = 0.11;
         float amount = sin(time)/1.5 - 1.5;
 
+        //floating
         glm::mat4 translated = glm::translate(modelMatrix, glm::vec3(0.0, amount, 0.0));
         
-        //rotatie de baza sa stea in picioare
+        //upright rotation
         glm::mat4 rotated = glm::rotate(translated, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        //stanga dreapta 
+        //left right rotation
         rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 3), glm::vec3(0.0f,1.0f, 0.0f));
-        //fata spate
+        //front back rotation
         rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 10), glm::vec3(1.0f, 0.0, 0.0f));
         //in jurul axei
         rotated *= glm::rotate(glm::mat4(1.0), glm::radians(time), glm::vec3(0.0f, 0.0, 1.0f));
@@ -125,6 +129,4 @@ public:
         glDrawArrays(GL_TRIANGLES, 0, (GLsizei)vertices.size());
         glBindVertexArray(0);
     }
-
-    void setModelMatrix(glm::mat4 m) { this->modelMatrix = m; }
 };

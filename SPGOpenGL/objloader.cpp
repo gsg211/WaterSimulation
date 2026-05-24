@@ -119,7 +119,9 @@ bool loadOBJ(
 		unsigned int uvIndex = uvIndices[i];
 		unsigned int normalIndex = normalIndices[i];
 		
-		// Get the attributes thanks to the index
+
+		//MODIFIED FOR UVs -> uncommented
+		// Get the attributes thanks to the index  
 		glm::vec3 vertex = temp_vertices[ vertexIndex-1 ];
 		glm::vec2 uv = temp_uvs[uvIndex - 1];
 		glm::vec3 normal = temp_normals[ normalIndex-1 ];

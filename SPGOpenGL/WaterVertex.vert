@@ -4,8 +4,7 @@ layout(location = 0) in vec3 vPos;
 
 
 uniform mat4 mvpMatrix;
-uniform mat4 normalMatrix;
-uniform mat4 modelMatrix;   
+uniform mat4 normalMatrix; 
 uniform float time;
 
 #define WIND_DIR 0.785 
@@ -22,9 +21,13 @@ vec3 calculateWave(vec2 p, float angle, float wavelength, float speed, float amp
     //k = 2π / wavelength 
     float k = 2.0 * 3.14159 / wavelength;
 
+    //converts angle into direction vector
     vec2 dir = vec2(cos(totalAngle), sin(totalAngle));
     
+    //phase calculation
     float phase = k * dot(dir, p) - (time * speed);
+
+    //wave that i chose
     float wave = exp(sin(phase) - 1.0); 
     
     float h = wave * amp;
@@ -50,6 +53,7 @@ void main() {
     float curSpeed = 1.2;       
     float angleStep = 1.0;      
 
+    //SUM OF WAVES
     for(int i = 0; i < NUM_WAVES; i++) {
         float waveAngle = float(i) * angleStep;
         
@@ -66,9 +70,10 @@ void main() {
 
     }
 
+    //height displacement
     v.y = totalHeight;
 
-
+    //recalculation of normals after height displacement
     vec3 rawNormal = normalize(vec3(-totalDX, 1.0, -totalDZ)); 
     
     pos = v;

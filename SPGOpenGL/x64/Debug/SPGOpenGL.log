@@ -1,21 +1,21 @@
 ﻿  main.cpp
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,20): warning C4101: 'height': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(51,20): warning C4101: 'height': unreferenced local variable
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,28): warning C4101: 'nrChannels': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(51,28): warning C4101: 'nrChannels': unreferenced local variable
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(49,13): warning C4101: 'width': unreferenced local variable
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\skybox.h(51,13): warning C4101: 'width': unreferenced local variable
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(97,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(100,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(111,69): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(111,69): warning C4244:         with
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(111,69): warning C4244:         [
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(111,69): warning C4244:             T=float
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(111,69): warning C4244:         ]
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(115,69): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(115,69): warning C4244:         with
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(115,69): warning C4244:         [
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(115,69): warning C4244:             T=float
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\duck.h(115,69): warning C4244:         ]
   (compiling source file 'main.cpp')
   
 E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\miniaudio.h(80532,82): warning C4244: '=': conversion from 'ma_uint64' to 'ma_uint32', possible loss of data

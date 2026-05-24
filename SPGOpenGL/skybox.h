@@ -36,8 +36,10 @@ public:
 
         glGenVertexArrays(1, &vao);
         glGenBuffers(1, &vbo);
+
         glBindVertexArray(vao);
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
         glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
@@ -52,6 +54,7 @@ public:
         _getcwd(cwd, sizeof(cwd));
         std::cout << "The program is looking in: " << cwd << std::endl;
 
+        //loading the texture images 
         for (unsigned int i = 0; i < faces.size(); i++) {
             int width, height, nrChannels;
             unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 3);
@@ -61,14 +64,19 @@ public:
             }
         }
 
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        //interpolation
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // when texture smaller than pixel -> liniar interpolation
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // when texture smaller than pixel -> liniar interpolation
+        
+        //clamping  
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); //U: horizonta;
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); //V: vertical
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE); //W: depth 
     }
 
     void display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix, const glm::vec3& cameraPos = glm::vec3(0.0f, 0.0f, 0.0f)) override {
+        //Draws object if z <= depthbuffer 
+        //skybox z is 1.0
         glDepthFunc(GL_LEQUAL); 
         glUseProgram(shader_programme);
 
@@ -82,6 +90,8 @@ public:
         glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
+
+        //turn the deph function back to normal
         glDepthFunc(GL_LESS); 
     }
 
