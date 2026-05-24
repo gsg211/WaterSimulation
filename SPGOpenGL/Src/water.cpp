@@ -3,19 +3,21 @@
 std::vector<float> Water::generateWaterMesh()
 {
     std::vector<float> vertices;
-    float squareSize = size / resolution;
-    float offset = size / 2.0f;
+    float squareSize = size / resolution; // size of square
+    float offset = size / 2.0f;          // center origin
 
     for (int i = 0; i < resolution; i++) {
         for (int j = 0; j < resolution; j++) {
             float x = i * squareSize - offset;
             float z = j * squareSize - offset;
 
+            // generate square
             float p[6][3] = {
                 {x, 0, z},              {x + squareSize, 0, z},              {x, 0, z + squareSize},
                 {x + squareSize, 0, z}, {x + squareSize, 0, z + squareSize}, {x, 0, z + squareSize}
             };
 
+            // add current square to vertices
             for (int k = 0; k < 6; k++)
                 for (int l = 0; l < 3; l++)
                     vertices.push_back(p[k][l]);
@@ -48,22 +50,25 @@ void Water::init()
 }
 
 void Water::display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatrix,
-                    const glm::vec3& cameraPos)
+    const glm::vec3& cameraPos)
 {
     glUseProgram(shader_programme);
 
     float time = (float)glutGet(GLUT_ELAPSED_TIME) / 1000.0f;
     glm::mat4 modelMatrix = glm::mat4(1.0f);
 
+    // time used for animation
     glUniform1f(glGetUniformLocation(shader_programme, "time"), time);
 
+    // skybox (cubemap) for reflection
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxID);
     glUniform1i(glGetUniformLocation(shader_programme, "skybox"), 0);
 
+    // mvp + viewpos + lightpos
     glUniformMatrix4fv(glGetUniformLocation(shader_programme, "mvpMatrix"), 1, GL_FALSE,
-                       glm::value_ptr(projectionMatrix * viewMatrix * modelMatrix));
-    glUniform3fv(glGetUniformLocation(shader_programme, "viewPos"),  1, glm::value_ptr(cameraPos));
+        glm::value_ptr(projectionMatrix * viewMatrix * modelMatrix));
+    glUniform3fv(glGetUniformLocation(shader_programme, "viewPos"), 1, glm::value_ptr(cameraPos));
     glUniform3fv(glGetUniformLocation(shader_programme, "lightPos"), 1, glm::value_ptr(lightPos));
 
     glBindVertexArray(vao);

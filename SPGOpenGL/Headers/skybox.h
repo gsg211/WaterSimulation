@@ -4,6 +4,7 @@
 #include <string>
 #include "stb_image.h"
 #include <direct.h>
+#include <glm/gtc/type_ptr.hpp>
 
 class Skybox : public Entity {
 private:

@@ -74,6 +74,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>include;Headers</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,6 +95,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>include;Headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -107,49 +109,50 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;Headers</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglut.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Duck.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="objloader.cpp" />
-    <ClCompile Include="Skybox.cpp" />
-    <ClCompile Include="stb_image.cpp" />
-    <ClCompile Include="water.cpp" />
+    <ClCompile Include="Src\Camera.cpp" />
+    <ClCompile Include="Src\Duck.cpp" />
+    <ClCompile Include="Src\Entity.cpp" />
+    <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\objloader.cpp" />
+    <ClCompile Include="Src\Skybox.cpp" />
+    <ClCompile Include="Src\stb_image.cpp" />
+    <ClCompile Include="Src\Water.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DuckFragment.frag" />
-    <None Include="DuckVertex.vert" />
-    <None Include="SkyboxFragment.frag" />
-    <None Include="SkyboxVertex.vert" />
-    <None Include="WaterFragment.frag" />
-    <None Include="WaterVertex.vert" />
+    <ClInclude Include="Headers\Camera.h" />
+    <ClInclude Include="Headers\Duck.h" />
+    <ClInclude Include="Headers\Entity.h" />
+    <ClInclude Include="Headers\miniaudio.h" />
+    <ClInclude Include="Headers\objloader.hpp" />
+    <ClInclude Include="Headers\Skybox.h" />
+    <ClInclude Include="Headers\stb_image.h" />
+    <ClInclude Include="Headers\Water.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="duck.h" />
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="miniaudio.h" />
-    <ClInclude Include="objloader.hpp" />
-    <ClInclude Include="skybox.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="Water.h" />
+    <None Include="shaders\DuckFragment.frag" />
+    <None Include="shaders\DuckVertex.vert" />
+    <None Include="shaders\SkyboxFragment.frag" />
+    <None Include="shaders\SkyboxVertex.vert" />
+    <None Include="shaders\WaterFragment.frag" />
+    <None Include="shaders\WaterVertex.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\Sabin\Downloads\right.png" />
-    <Image Include="C:\Users\Sabin\Downloads\left.png" />
-    <Image Include="C:\Users\Sabin\Downloads\top.png" />
-    <Image Include="C:\Users\Sabin\Downloads\bottom.png" />
-    <Image Include="C:\Users\Sabin\Downloads\front.png" />
-    <Image Include="C:\Users\Sabin\Downloads\back.png" />
+    <Image Include="textures\back.png" />
+    <Image Include="textures\bottom.png" />
+    <Image Include="textures\duck.jpg" />
+    <Image Include="textures\front.png" />
+    <Image Include="textures\left.png" />
+    <Image Include="textures\right.png" />
+    <Image Include="textures\top.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

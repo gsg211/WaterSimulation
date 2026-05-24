@@ -14,11 +14,11 @@ void Duck::init()
 {
     load_shaders();
 
-    if (!loadOBJ("obj/12248_Bird_v1_L2.obj", vertices, uvs, normals)) {
+    if (!loadOBJ("obj/duck.obj", vertices, uvs, normals)) {
         printf("Failed to load OBJ!\n");
     }
 
-    std::string texturePath = "12248_Bird_v1_diff.jpg";
+    std::string texturePath = "textures\\duck.jpg";
 
     glGenVertexArrays(1, &this->vao);
     glBindVertexArray(this->vao);
@@ -93,7 +93,7 @@ void Duck::display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatri
     rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 3), glm::vec3(0.0f, 1.0f, 0.0f));
     // front back rotation
     rotated *= glm::rotate(glm::mat4(1.0), glm::radians(sin(time) * 3 + 10), glm::vec3(1.0f, 0.0f, 0.0f));
-    // in jurul axei
+    // around its own axis
     rotated *= glm::rotate(glm::mat4(1.0), glm::radians(time), glm::vec3(0.0f, 0.0f, 1.0f));
 
     glm::mat4 scaledModelMatrix = glm::scale(rotated, glm::vec3(scalefactor));

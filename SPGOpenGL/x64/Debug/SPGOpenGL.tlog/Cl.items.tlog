@@ -1,7 +1,8 @@
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Camera.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Camera.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Duck.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Duck.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\main.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\main.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\objloader.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\objloader.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Skybox.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Skybox.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\stb_image.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\stb_image.obj
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\water.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\water.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\Camera.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Camera.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\Duck.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Duck.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\Entity.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Entity.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\main.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\main.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\objloader.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\objloader.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\Skybox.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Skybox.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\stb_image.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\stb_image.obj
+E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Src\Water.cpp;E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\x64\Debug\Water.obj

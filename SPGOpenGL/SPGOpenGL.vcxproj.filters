@@ -4,102 +4,108 @@
     <Filter Include="src">
       <UniqueIdentifier>{01f25f6b-60e7-4302-8453-2b6a0d032c6f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="shaders">
-      <UniqueIdentifier>{8b4599c3-2c6c-4f7e-8a83-03fda69234f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Headers">
       <UniqueIdentifier>{e16f851f-3df9-42ba-9633-e739dd276742}</UniqueIdentifier>
     </Filter>
     <Filter Include="textures">
       <UniqueIdentifier>{a13df8d9-ed2b-4f00-8360-1e8ff9adba5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{8b4599c3-2c6c-4f7e-8a83-03fda69234f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\Skybox.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="objloader.cpp">
+    <ClCompile Include="Src\Camera.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="stb_image.cpp">
+    <ClCompile Include="Src\Duck.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="water.cpp">
+    <ClCompile Include="Src\Entity.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Skybox.cpp">
+    <ClCompile Include="Src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Duck.cpp">
+    <ClCompile Include="Src\objloader.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="Src\Water.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\stb_image.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="WaterFragment.frag">
+    <None Include="shaders\DuckVertex.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="WaterVertex.vert">
+    <None Include="shaders\SkyboxFragment.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="SkyboxVertex.vert">
+    <None Include="shaders\WaterVertex.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="SkyboxFragment.frag">
+    <None Include="shaders\WaterFragment.frag">
       <Filter>shaders</Filter>
     </None>
-    <None Include="DuckVertex.vert">
+    <None Include="shaders\SkyboxVertex.vert">
       <Filter>shaders</Filter>
     </None>
-    <None Include="DuckFragment.frag">
+    <None Include="shaders\DuckFragment.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h">
+    <ClInclude Include="Headers\Water.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
+    <ClInclude Include="Headers\Camera.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Water.h">
+    <ClInclude Include="Headers\Duck.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="skybox.h">
+    <ClInclude Include="Headers\Entity.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="stb_image.h">
+    <ClInclude Include="Headers\miniaudio.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="duck.h">
+    <ClInclude Include="Headers\objloader.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="objloader.hpp">
+    <ClInclude Include="Headers\Skybox.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="miniaudio.h">
+    <ClInclude Include="Headers\stb_image.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\Sabin\Downloads\bottom.png">
+    <Image Include="textures\back.png">
       <Filter>textures</Filter>
     </Image>
-    <Image Include="C:\Users\Sabin\Downloads\top.png">
+    <Image Include="textures\bottom.png">
       <Filter>textures</Filter>
     </Image>
-    <Image Include="C:\Users\Sabin\Downloads\left.png">
+    <Image Include="textures\duck.jpg">
       <Filter>textures</Filter>
     </Image>
-    <Image Include="C:\Users\Sabin\Downloads\right.png">
+    <Image Include="textures\front.png">
       <Filter>textures</Filter>
     </Image>
-    <Image Include="C:\Users\Sabin\Downloads\back.png">
+    <Image Include="textures\left.png">
       <Filter>textures</Filter>
     </Image>
-    <Image Include="C:\Users\Sabin\Downloads\front.png">
+    <Image Include="textures\right.png">
+      <Filter>textures</Filter>
+    </Image>
+    <Image Include="textures\top.png">
       <Filter>textures</Filter>
     </Image>
   </ItemGroup>

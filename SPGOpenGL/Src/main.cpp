@@ -50,7 +50,7 @@ void init() {
     duck->init();
 
     ma_engine_init(NULL, &audioEngine);
-    ma_engine_play_sound(&audioEngine, "ocean.mp3", NULL);
+    ma_engine_play_sound(&audioEngine, "sounds\\ocean.mp3", NULL);
 }
 
 
