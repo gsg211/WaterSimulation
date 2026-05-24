@@ -1,19 +1,16 @@
 # Ocean Scene - OpenGL Project
-**Gorea Sabin-Gabriel 1310B**
-
----
 
 ## Theme
 
 The theme of this project is the rendering of an ocean scene using the Sum of Sines method in a manner that is easy to implement and run in a video game context.
 
----
+
 
 ## Motivation
 
 Water rendering is an important aspect of Real Time Rendering, being found in both the video game industry and the film industry. Although there are scientific methods for simulating water based on the Navier-Stokes equations, those methods are not feasible in a real-time context due to their complexity.
 
----
+
 
 ## Objectives
 
@@ -24,7 +21,6 @@ Water rendering is an important aspect of Real Time Rendering, being found in bo
 - A complex animated model floating on water
 - Ambient ocean audio
 
----
 
 ## Environment
 
@@ -40,7 +36,7 @@ Water rendering is an important aspect of Real Time Rendering, being found in bo
 | `objloader` | Loading the 3D model |
 | `miniaudio` | Ambient ocean sound |
 
----
+
 
 ## Methodology
 
@@ -110,13 +106,12 @@ classDiagram
     Entity <|-- Skybox
 ```
 
----
 
 ## Camera and Controls
 
 The camera allows free movement in the scene using the WASD keys for movement and the mouse for rotation. Orientation is calculated from the yaw (left-right) and pitch (up-down) angles. Keys Q and E move the camera up and down, and ESC closes the program.
 
----
+
 
 ## Wave Generation
 
@@ -124,7 +119,7 @@ There are 2 popular methods for achieving this. The first is the Sum of Sines, w
 
 Due to the implementation complexity of the second method, the Sum of Sines was chosen for this project.
 
----
+
 
 ## Water
 
@@ -158,7 +153,7 @@ The Fresnel effect represents the phenomenon where surfaces seen at shallow angl
 
 The specular component is multiplied by `(0.2 + 0.8 * fresnel)` to always have a minimum of 20% specular, increasing up to 100% at flat angles. The final color is a mix of `0.2 + fresnel` between the base lighting color and the reflection color.
 
----
+
 
 ## Skybox
 
@@ -166,7 +161,6 @@ The skybox is a cubemap with 6 textures representing the sky. It receives a `vec
 
 The vertex shader outputs `gl_Position = p.xyww`. After perspective division z/w gives 1.0 (the maximum depth), which makes the skybox render behind every other object. This is also why `glDepthFunc` must be set to `GL_LEQUAL` — without it the skybox would be rejected by the default `GL_LESS` depth test.
 
----
 
 ## Duck
 
@@ -183,13 +177,12 @@ These animations do not follow the actual water height.
 
 ![Duck on water](duck.png)
 
----
+
 
 ## Results
 
 The result is a credible and performance-efficient ocean scene. The method does present visible limitations: viewed from above, the mesh tiling is noticeable, and choosing the wave parameters is a difficult empirical process.
 
----
 
 ## Conclusions
 
@@ -197,7 +190,7 @@ The Sum of Sines method is an accessible solution with acceptable results for re
 
 In cases where higher fidelity is required, methods based on ocean spectra — such as the JONSWAP spectrum combined with the Fast Fourier Transform — produce more realistic and visually pleasing results with a high degree of parametrization, at the cost of greater implementation complexity.
 
----
+
 
 ## Potential Future Improvements
 
