@@ -24,6 +24,18 @@
     <ClCompile Include="stb_image.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="water.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Duck.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="WaterFragment.frag">
