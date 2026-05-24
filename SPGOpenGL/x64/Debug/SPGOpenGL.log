@@ -1,5 +1,1 @@
-﻿  main.cpp
-E:\Facultate\An3\Spg\Proiect Spg\SPGOpenGL\Headers\miniaudio.h(80532,82): warning C4244: '=': conversion from 'ma_uint64' to 'ma_uint32', possible loss of data
-  (compiling source file 'Src/main.cpp')
-  
-  SPGOpenGL.vcxproj -> E:\Facultate\An3\Spg\Proiect Spg\x64\Debug\SPGOpenGL.exe
+﻿  SPGOpenGL.vcxproj -> E:\Facultate\An3\Spg\Proiect Spg\x64\Debug\SPGOpenGL.exe

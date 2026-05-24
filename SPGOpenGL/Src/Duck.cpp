@@ -23,6 +23,7 @@ void Duck::init()
     glGenVertexArrays(1, &this->vao);
     glBindVertexArray(this->vao);
 
+    // position VBO - layout location 0 in vertex shader    
     GLuint posVBO;
     glGenBuffers(1, &posVBO);
     glBindBuffer(GL_ARRAY_BUFFER, posVBO);
@@ -30,6 +31,7 @@ void Duck::init()
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
+    // normals VBO - layout location 1 in vertex shader
     GLuint normalVBO;
     glGenBuffers(1, &normalVBO);
     glBindBuffer(GL_ARRAY_BUFFER, normalVBO);
@@ -37,6 +39,7 @@ void Duck::init()
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
+    // UV coords VBO - layout location 2 in vertex shader
     GLuint uvVBO;
     glGenBuffers(1, &uvVBO);
     glBindBuffer(GL_ARRAY_BUFFER, uvVBO);
@@ -84,6 +87,8 @@ void Duck::display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatri
     double scalefactor = 0.11;
     float amount = sin(time) / 1.5f - 1.5f;
 
+    // <--- ANIMATIONS --->
+
     // floating
     glm::mat4 translated = glm::translate(modelMatrix, glm::vec3(0.0, amount, 0.0));
 
@@ -96,8 +101,12 @@ void Duck::display(const glm::mat4& projectionMatrix, const glm::mat4& viewMatri
     // around its own axis
     rotated *= glm::rotate(glm::mat4(1.0), glm::radians(time), glm::vec3(0.0f, 0.0f, 1.0f));
 
+
+    // <------>
+
     glm::mat4 scaledModelMatrix = glm::scale(rotated, glm::vec3(scalefactor));
     glm::mat4 mvp = projectionMatrix * viewMatrix * scaledModelMatrix;
+
 
     glUniformMatrix4fv(glGetUniformLocation(shader_programme, "mvpMatrix"),    1, GL_FALSE, glm::value_ptr(mvp));
     glUniformMatrix4fv(glGetUniformLocation(shader_programme, "modelMatrix"),  1, GL_FALSE, glm::value_ptr(scaledModelMatrix));

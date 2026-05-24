@@ -35,6 +35,7 @@ void init() {
     glClearColor(0.0f, 0.549f, 1.0f, 1.0f);
 
 
+    //skybox faces file paths in order: front, back, top, bottom, right, left
     std::vector<std::string> faces = {
         "textures/front.png", "textures/back.png", "textures/top.png", "textures/bottom.png", "textures/right.png", "textures/left.png"
     };
@@ -42,6 +43,7 @@ void init() {
     skybox = new Skybox(faces);
     skybox->init();
 
+    // water needs the skybox cubemap for reflections
     water = new Water(900, 300.0f, lightPos);
     water->setSkyboxId(skybox->getTextureID());
     water->init();
@@ -49,6 +51,7 @@ void init() {
 
     duck->init();
 
+    // background audio
     ma_engine_init(NULL, &audioEngine);
     ma_engine_play_sound(&audioEngine, "sounds\\ocean.mp3", NULL);
 }
@@ -72,9 +75,15 @@ void reshape(int w, int h) {
     projectionMatrix = glm::perspective(glm::radians(45.0f), (float)w / h, 0.1f, 1000.0f);
 }
 
-void mouse_callback(int x, int y) { camera->handleMouse(x, y); }
-void kbD(unsigned char k, int x, int y) { camera->handleKeyboard(k, true); if (k == 27) exit(0); }
-void kbU(unsigned char k, int x, int y) { camera->handleKeyboard(k, false); }
+void mouse_callback(int x, int y) { 
+    camera->handleMouse(x, y); 
+}
+void kbD(unsigned char k, int x, int y) { 
+    camera->handleKeyboard(k, true); if (k == 27) exit(0); 
+}
+void kbU(unsigned char k, int x, int y) {
+    camera->handleKeyboard(k, false); 
+}
 
 
 int main(int argc, char** argv) {

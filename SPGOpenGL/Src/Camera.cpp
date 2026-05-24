@@ -5,8 +5,8 @@ Camera::Camera(glm::vec3 startPos)
     this->pos = startPos;
     this->front = glm::vec3(0.0f, -0.2f, -1.0f);
     this->up = glm::vec3(0.0f, 1.0f, 0.0f);
-    this->yaw = -90.0f;
-    this->pitch = -15.0f;
+    this->yaw = -90.0f;   // facing -Z by default
+    this->pitch = -15.0f; // slightly looking down
     this->speed = 0.4f;
     this->sensitivity = 0.1f;
     this->lastX = 400.0f;
@@ -32,6 +32,7 @@ void Camera::handleMouse(int x, int y)
     int centerX = 400;
     int centerY = 300;
 
+    // ignore the first mouse input to avoid a jump
     if (firstMouse) {
         lastX = (float)x;
         lastY = (float)y;
@@ -39,18 +40,20 @@ void Camera::handleMouse(int x, int y)
     }
 
     float xoffset = (float)x - lastX;
-    float yoffset = lastY - (float)y;
+    float yoffset = lastY - (float)y; // reversed: y goes bottom to top
     lastX = (float)x;
     lastY = (float)y;
 
-    yaw   += xoffset * sensitivity;
+    yaw += xoffset * sensitivity;
     pitch += yoffset * sensitivity;
 
-    if (pitch >  89.0f) pitch =  89.0f;
+    // clamp pitch so the camera doesn't flip
+    if (pitch > 89.0f) pitch = 89.0f;
     if (pitch < -89.0f) pitch = -89.0f;
 
     updateVectors();
 
+    // warp pointer back to center when near the edge
     if (x < 100 || x > 700 || y < 100 || y > 500) {
         lastX = (float)centerX;
         lastY = (float)centerY;
@@ -61,6 +64,8 @@ void Camera::handleMouse(int x, int y)
 void Camera::update()
 {
     glm::vec3 right = glm::normalize(glm::cross(front, up));
+
+    // WASD movement + Q/E for up/down
     if (keys['w']) pos += front * speed;
     if (keys['s']) pos -= front * speed;
     if (keys['a']) pos -= right * speed;
@@ -71,9 +76,10 @@ void Camera::update()
 
 void Camera::updateVectors()
 {
+    // recalculate front vector from yaw and pitch using spherical coordinates
     glm::vec3 newFront;
-    newFront.x = cos(glm::radians(yaw))   * cos(glm::radians(pitch));
+    newFront.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
     newFront.y = sin(glm::radians(pitch));
-    newFront.z = sin(glm::radians(yaw))   * cos(glm::radians(pitch));
+    newFront.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
     front = glm::normalize(newFront);
 }
